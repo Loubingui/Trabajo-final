@@ -1,10 +1,35 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    background-color: #000; 
+    color: #0F0; 
+    font-family: 'Courier New', Courier, monospace; 
+    line-height: 1.2;
+    padding: 20px;
     position: relative; 
     overflow-x: hidden; 
 }
 
-/
+h2 {
+    color: #FF00FF;
+    margin-top: 40px;
+    border-bottom: 2px dashed #0F0;
+    padding-bottom: 5px;
+}
+
+.proyecto {
+    border: 3px solid #FF0000;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: rgba(51, 51, 51, 0.7); 
+}
+
+
 .glitch {
     font-family: 'Impact', sans-serif;
     position: relative;
@@ -19,103 +44,48 @@ body {
 }
 
 
-.glitch::before,
-.glitch::after {
-    content: attr(data-text); 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    clip: rect(0, 0, 0, 0); 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000; 
+    color: #0F0; 
+    font-family: 'Courier New', Courier, monospace; 
+    line-height: 1.2;
+    padding: 20px;
+    position: relative; 
+    overflow-x: hidden; 
+}
+
+h2 {
+    color: #FF00FF; 
+    margin-top: 40px;
+    border-bottom: 2px dashed #0F0;
+    padding-bottom: 5px;
+}
+
+.proyecto {
+    border: 3px solid #FF0000;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: rgba(51, 51, 51, 0.7); /
 }
 
 
-.glitch::before {
-    left: -0.015em;
-    text-shadow: 0.025em 0 0 #00FFFF;
-    animation: glitch-anim-before 1.5s infinite linear alternate-reverse;
-}
-
-
-.glitch::after {
-    left: 0.015em;
-    text-shadow: -0.025em 0 0 #FF00FF;
-    animation: glitch-anim-after 2s infinite linear alternate-reverse;
-}
-
-
-@keyframes glitch-anim {
-    0% { transform: translate(0); }
-    20% { transform: translate(-5px, 5px); }
-    40% { transform: translate(-5px, -5px); }
-    60% { transform: translate(5px, 5px); }
-    80% { transform: translate(5px, -5px); }
-    100% { transform: translate(0); }
-}
-
-@keyframes glitch-anim-before {
-    0% { clip: rect(44px, 9999px, 56px, 0); }
-    15% { clip: rect(65px, 9999px, 81px, 0); }
-    30% { clip: rect(49px, 9999px, 86px, 0); }
-    45% { clip: rect(10px, 9999px, 35px, 0); }
-    60% { clip: rect(51px, 9999px, 100px, 0); }
-    75% { clip: rect(25px, 9999px, 40px, 0); }
-    90% { clip: rect(78px, 9999px, 99px, 0); }
-    100% { clip: rect(32px, 9999px, 50px, 0); }
-}
-
-@keyframes glitch-anim-after {
-    0% { clip: rect(83px, 9999px, 99px, 0); }
-    15% { clip: rect(10px, 9999px, 35px, 0); }
-    30% { clip: rect(51px, 9999px, 100px, 0); }
-    45% { clip: rect(25px, 9999px, 40px, 0); }
-    60% { clip: rect(78px, 9999px, 99px, 0); }
-    75% { clip: rect(44px, 9999px, 56px, 0); }
-    90% { clip: rect(65px, 9999px, 81px, 0); }
-    100% { clip: rect(49px, 9999px, 86px, 0); }
-}
-
-#noise-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; 
-    z-index: 999; 
+.glitch {
+    font-family: 'Impact', sans-serif;
+    position: relative;
+    color: #FF0000; 
+    text-transform: uppercase;
+    font-size: 3em;
+    text-shadow: 0.05em 0 0 #00FFFF, 
+                 -0.03em -0.04em 0 #FF00FF, 
+                 0.025em 0.05em 0 #FFFF00;
     
-
-    background-image: url('RUTA_IMAGEN_RUIDO_GRANO.png'); 
-    
-    
-    opacity: 0.15; 
+    animation: glitch-anim 2s infinite linear alternate-reverse; 
 }
 
 
-.media-punk {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 15px;
-    
-   
-    filter: 
-        grayscale(70%) 
-        contrast(150%) 
-        saturate(180%) 
-        blur(0.5px); 
-    
-   
-    animation: flicker 4s infinite alternate;
-}
-
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    5% { opacity: 0.8; }
-    10% { opacity: 1; }
-    15% { opacity: 0.9; }
-    20% { opacity: 1; }
-    25% { opacity: 0.85; }
-    30% { opacity: 1; }
-}

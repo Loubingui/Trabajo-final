@@ -25,3 +25,5 @@ const body = document.body;
 
 
 body.style.cursor = 'url("RUTA_CURSOR_PUNK.png"), default'; 
+
+const body = document.body;
