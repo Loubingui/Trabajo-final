@@ -1,6 +1,19 @@
 const noiseOverlay = document.getElementById('noise-overlay');
 let interferenceTimeout;
 
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
 function triggerInterference() {
     
     noiseOverlay.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
@@ -15,11 +28,11 @@ function triggerInterference() {
     }, 150); 
 }
 
-
-window.addEventListener('scroll', triggerInterference);
+// Se usa la versión "throttled" de la función en el event listener
+const throttledInterference = throttle(triggerInterference, 100); 
+window.addEventListener('scroll', throttledInterference);
 
 
 const body = document.body;
 
 
-body.style.cursor = 'url("RUTA_CURSOR_PUNK.png"), default';

@@ -145,15 +145,11 @@ h2 {
 .two-column-layout::before {
     content: "";
     position: absolute;
-    /* CORRECCIÓN: Estira el fondo hacia arriba para que no se vea el color del body */
     top: -130px;
     left: 0;
     width: 100%;
-    /* CORRECCIÓN: Ajusta la altura */
     height: calc(100% + 130px);
-    
-    /* Nota: Asegúrate que la ruta de la imagen sea correcta si está en img/fondo3.png */
-    background-image: url('img/fondo3.png'); 
+        background-image: url('img/fondo3.png'); 
     background-attachment: scroll; 
     background-repeat: repeat;
     background-size: cover; 
@@ -191,7 +187,6 @@ h2 {
     margin-top: 20px; 
 }
 
-/* Aplicando el estilo a la imagen de presentación directamente */
 .presentacion-img {
     max-width: 100%; 
     height: auto;
@@ -199,7 +194,6 @@ h2 {
     padding: 5px;
     border: 2px solid #7D5694;
     box-shadow: 3px 3px #482C6B;
-    /* Para evitar recortes en la imagen de presentación si es vertical */
     object-fit: contain; 
 }
 
@@ -411,4 +405,90 @@ h2 {
     75% { clip: rect(60px, 9999px, 22px, 0); }
     90% { clip: rect(64px, 9999px, 87px, 0); }
     100% { clip: rect(55px, 9999px, 81px, 0); }
+}
+
+@media (max-width: 768px) {
+    
+    main {
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+        /* Navbar ajustes */
+    #top-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        transform: skewY(0deg); 
+        height: auto; 
+    }
+    
+    #top-navbar h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    
+    .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    #top-navbar a {
+        font-size: 0.9em;
+        padding: 5px 8px;
+    }
+
+    /* Cambio de 2 columnas a 1 columna */
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        
+        margin-left: -20px; 
+        margin-right: -20px;
+        width: calc(100% + 40px); 
+        
+        padding-left: 20px; 
+        padding-right: 20px;
+        padding-bottom: 30px;
+    }
+    
+   
+    .two-column-layout::before {
+        top: -130px;
+        height: calc(100% + 130px);
+    }
+    
+    .presentacion-contenido {
+        grid-template-columns: 1fr;
+    }
+    
+    .presentacion-img {
+        max-width: 80%; 
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    
+    .punk-contact-box {
+        padding: 30px 20px;
+        transform: skewY(0deg); 
+    }
+    
+    .punk-contact-box h2 {
+        transform: skewY(0deg);
+    }
+    
+    .contact-content {
+        transform: skewY(0deg);
+    }
+    
+    .sociales {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .enlace-social {
+        text-align: center;
+    }
 }
