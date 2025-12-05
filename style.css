@@ -31,13 +31,9 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    margin-top: 15px;
     filter: 
         grayscale(50%) 
-        sepia(80%) 
-        hue-rotate(250deg) 
         contrast(150%) 
-        saturate(180%) 
         blur(0.5px); 
     animation: flicker 4s infinite alternate;
 }
@@ -134,7 +130,7 @@ body {
 }
 
 main { 
-    padding-top: 100px; 
+    padding-top: 0; 
     padding-left: 50px; 
     padding-right: 50px; 
 }
@@ -153,14 +149,77 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-    margin-top: 50px;
+    
+    margin-left: -50px; 
+    margin-right: -50px;
+    width: calc(100% + 100px); 
+    
+    padding-left: 50px; 
+    padding-right: 50px;
+    
+    margin-top: 0; 
+    padding-top: 100px; 
+    
     padding-bottom: 50px;
     border-bottom: 3px dashed #482C6B;
+    
+    position: relative; 
+    z-index: 1; 
+}
+
+.two-column-layout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url('img/fondo3.png'); 
+    background-attachment: scroll; 
+    background-repeat: repeat;
+    background-size: cover; 
+    opacity: 0.5; 
+    
+    z-index: -1; 
+}
+
+.two-column-layout h2 {
+    margin-top: 0; 
+    position: relative; 
+    z-index: 2; 
+}
+
+#manifiesto, #habilidades {
+    position: relative;
+    z-index: 2;
+}
+
+.skill-bar {
+    position: relative;
+    z-index: 2;
 }
 
 #manifiesto p {
     font-size: 1.1em;
     color: #ccc;
+}
+
+.presentacion-contenido {
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 30px; 
+    align-items: center; 
+    margin-top: 20px; 
+}
+
+.presentacion-img {
+    max-width: 100%; 
+    height: auto;
+    margin-top: 15px; 
+    padding: 5px;
+    border: 2px solid #7D5694;
+    box-shadow: 3px 3px #482C6B;
 }
 
 .horizontal-scroll-container {
@@ -297,6 +356,7 @@ h2 {
 #habilidades {
     margin-top: 50px;
 }
+
 #habilidades h2 { 
     margin-bottom: 30px;
 }
@@ -356,14 +416,7 @@ h2 {
 
 
 @keyframes glitch-anim {
-    0% { transform: translate(0); }
-    15% { transform: translate(-5px, 0); }
-    30% { transform: translate(5px, 0); }
-    45% { transform: translate(-5px, 0); }
-    60% { transform: translate(5px, 0); }
-    75% { transform: translate(-5px, 0); }
-    90% { transform: translate(5px, 0); }
-    100% { transform: translate(0); }
+    0%, 100% { transform: translate(0); }
 }
 
 @keyframes glitch-anim-before {
@@ -386,4 +439,10 @@ h2 {
     75% { clip: rect(60px, 9999px, 22px, 0); }
     90% { clip: rect(64px, 9999px, 87px, 0); }
     100% { clip: rect(55px, 9999px, 81px, 0); }
+}
+.proyecto img {
+    display: block;
+    width: 100%;
+    height: auto; 
+    margin-bottom: 0;
 }
