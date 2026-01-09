@@ -15,24 +15,22 @@ function throttle(func, limit) {
 }
 
 function triggerInterference() {
+    // Generamos valores aleatorios de brillo y contraste para blancos y grises
+    const brightness = 0.6 + Math.random(); // Variación de luz
+    const contrast = 1 + Math.random(); // Variación de dureza de gris
     
-    noiseOverlay.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
-    noiseOverlay.style.transform = `translate(${Math.random() * 5 - 2.5}px, ${Math.random() * 5 - 2.5}px)`;
-    noiseOverlay.style.opacity = 0.4; 
+    // Aplicamos solo filtros que no afectan el color (hue)
+    noiseOverlay.style.filter = `brightness(${brightness}) contrast(${contrast}) grayscale(1)`;
+    noiseOverlay.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+    noiseOverlay.style.opacity = 0.3; 
 
     clearTimeout(interferenceTimeout);
     interferenceTimeout = setTimeout(() => {
-        noiseOverlay.style.filter = 'none';
+        noiseOverlay.style.filter = 'grayscale(1)';
         noiseOverlay.style.transform = 'translate(0, 0)';
         noiseOverlay.style.opacity = 0.15;
-    }, 150); 
+    }, 100); 
 }
 
-// Se usa la versión "throttled" de la función en el event listener
-const throttledInterference = throttle(triggerInterference, 100); 
+const throttledInterference = throttle(triggerInterference, 80); 
 window.addEventListener('scroll', throttledInterference);
-
-
-const body = document.body;
-
-
